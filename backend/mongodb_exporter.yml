@@ -1,0 +1,6 @@
+# MongoDB Exporter Configuration
+---
+mongodb:
+  uri: "mongodb://root:secret1234@172.21.61.204:27017/travelmemory"
+  username: "root"
+  password: "secret1234"

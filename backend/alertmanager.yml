@@ -1,0 +1,26 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 3h
+  receiver: ['email-alert', 'slack-webhook']
+
+receivers:
+- name: 'email-alert'
+  email_configs:
+  - to: 'gupta.surender.1990@gmail.com'
+    from: 'myinrbtc@gmail.com'
+    smarthost: 'sandbox.smtp.mailtrap.io:587'
+    auth_username: '52c78abeec9a47'
+    auth_password: '01b27bc532cec3'
+    auth_identity: 'myinrbtc@gmail.com'
+- name: 'slack-webhook'
+  slack_configs:
+  - channel: '#alertmanager-prom'
+    username: 'alertmanager'
+    send_resolved: true
+    icon_url: 'https://path.to.your/icon.png'
+    webhook_url: 'https://hooks.slack.com/services/your/webhook/url'
